@@ -1,7 +1,7 @@
 name: pointer_tap_simulator
 description: "The tap event of the upper component can be penetrated to the lower layer"
 version: 0.0.1
-homepage:
+homepage: https://github.com/tbtsfastad/pointer_tap_simulator
 
 environment:
   sdk: ^3.8.1
