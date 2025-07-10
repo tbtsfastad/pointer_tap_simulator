@@ -8,12 +8,14 @@ class PointerTapSimulator extends StatefulWidget {
     this.onPointerDown,
     this.onPointerMove,
     this.onPointerUp,
+    this.behavior,
   });
 
   final Widget child;
   final PointerDownEventListener? onPointerDown;
   final PointerMoveEventListener? onPointerMove;
   final PointerUpEventListener? onPointerUp;
+  final HitTestBehavior? behavior;
 
   @override
   State<PointerTapSimulator> createState() => _PointerTapSimulatorState();
@@ -27,6 +29,7 @@ class _PointerTapSimulatorState extends State<PointerTapSimulator> {
   Widget build(BuildContext context) => IgnorePointer(
     ignoring: _is,
     child: Listener(
+      behavior: widget.behavior ?? HitTestBehavior.deferToChild,
       onPointerDown: (event) {
         widget.onPointerDown?.call(event);
         _lastPosition = event.position;
